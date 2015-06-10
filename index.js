@@ -1,8 +1,8 @@
 var canvasPixels = require('canvas-pixels').get3d;
 
-module.exports = function(webgl) {
+module.exports = function(webgl, canvas2D) {
 
-  var outCanvas = document.createElement('canvas');
+  var outCanvas = canvas2D ? canvas2D.canvas || canvas2D : document.createElement('canvas');
   var outContext = outCanvas.getContext('2d');
   var outImageData;
 

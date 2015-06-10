@@ -25,15 +25,36 @@ function doTests() {
 
   tape('test creating from canvas', function(t) {
     doChecks(t, glCanvas);
+    t.end();
   });
 
   tape('test creating from webglcanvascontext', function(t) {
     doChecks(t, gl);
+    t.end();
+  });
+
+  tape('test creating with target canvas', function(t) {
+
+    var canvas = document.createElement('canvas');
+    var returnedCanvas = doChecks(t, glCanvas, canvas);
+
+    t.equal(canvas, returnedCanvas, 'the same canvas was returned');
+    t.end();
+  });
+
+  tape('test creating with target canvas context', function(t) {
+
+    var canvas = document.createElement('canvas');
+    var context = canvas.getContext('2d');
+    var returnedCanvas = doChecks(t, glCanvas, context);
+
+    t.equal(canvas, returnedCanvas, 'the same canvas was returned');
+    t.end();
   });
 }
 
-function doChecks(t, gl) {
-  var canvas2d = webglToCanvas2d(gl);
+function doChecks(t, gl, canvas2d) {
+  var canvas2d = webglToCanvas2d(gl, canvas2d);
   var context = canvas2d.getContext('2d');
   var data = context.getImageData(0, 0, canvas2d.width, canvas2d.height).data;
   var pixel;
@@ -54,7 +75,7 @@ function doChecks(t, gl) {
   t.equal(pixel[ 1 ], 0, 'bottom right green correct');
   t.equal(pixel[ 2 ], 255, 'bottom right blue correct');
 
-  t.end();
+  return canvas2d;
 }
 
 function getPixel(data, x, y) {

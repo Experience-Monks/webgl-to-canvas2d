@@ -8,6 +8,14 @@ Convert a webgl context or a webgl canvas into a 2d canvas.
 
 [![NPM](https://nodei.co/npm/webgl-to-canvas2d.png)](https://www.npmjs.com/package/webgl-to-canvas2d)
 
+### `webglToCanvas2d(gl, [canvas2d])`
+
+`gl` can be a canvas using webglrenderingcontext or a webglrenderingcontext.
+`canvas2d` can be a canvas or a CanvasRenderingContext2D.
+
+The returned value will be a canvas using CanvasRenderingContext2D.
+
+
 ```javascript
 var webglToCanvas2d = require('webgl-to-canvas2d');
 
