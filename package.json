@@ -1,0 +1,35 @@
+{
+  "name": "webgl-to-canvas2d",
+  "version": "1.0.0",
+  "description": "Convert a webgl context or webgl canvas into a 2d canvas",
+  "main": "index.js",
+  "license": "MIT",
+  "author": {
+    "name": "Mikko Haapoja",
+    "email": "me@mikkoh.com",
+    "url": "https://github.com/mikkoh"
+  },
+  "dependencies": {
+    "canvas-pixels": "0.0.0"
+  },
+  "devDependencies": {
+    "gl-context": "^0.1.1",
+    "gl-texture2d": "^2.0.8",
+    "gl-texture2d-display": "^1.0.0",
+    "tape": "^4.0.0"
+  },
+  "scripts": {
+    "test": "node test.js"
+  },
+  "keywords": [
+    "webgl,2d,canvas,3d"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Jam3/webgl-to-canvas2d.git"
+  },
+  "homepage": "https://github.com/Jam3/webgl-to-canvas2d",
+  "bugs": {
+    "url": "https://github.com/Jam3/webgl-to-canvas2d/issues"
+  }
+}
